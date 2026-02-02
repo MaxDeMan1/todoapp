@@ -31,6 +31,3 @@ class task:
 
     def __repr__(self):
         return f"task(name = {self.name}, priority = {self.priority}, deadline = {self.deadline})"
-
-
-tasks: typing.List[task] = [] # Holds all the tasks
