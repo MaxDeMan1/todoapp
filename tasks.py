@@ -8,7 +8,7 @@ import typing
 _priority = typing.Literal["low", "normal", "high"]
 
 
-class task:
+class Task:
     """
     Parameters:
         name = str containing the name of the task e.g. "Write chapter 3"
@@ -33,12 +33,12 @@ class task:
         return f"task(name = {self.name}, priority = {self.priority}, deadline = {self.deadline})"
 
 
-tasks: typing.List[task] = [] # Holds all the tasks
+tasks: typing.List[Task] = [] # Holds all the tasks
 
 
 def clear_tasks() -> None:
     tasks.clear()
 
 
-def add_task(task: task):
+def add_task(task: Task):
     tasks.append(task)
