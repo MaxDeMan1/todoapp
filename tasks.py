@@ -40,5 +40,19 @@ def clear_tasks() -> None:
     tasks.clear()
 
 
-def add_task(task: Task):
+def add_task(task: Task) -> None:
     tasks.append(task)
+
+
+def remove_task(input_task: Task) -> None:
+    i = 0
+    for task in tasks:
+        if task is input_task:
+             tasks.pop(i)   
+        i += 1
+
+    raise ValueError("input_task argument must contain a task in tasks")
+
+
+def get_tasks_length() -> int:
+    return len(tasks)
