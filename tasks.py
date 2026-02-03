@@ -34,3 +34,11 @@ class task:
 
 
 tasks: typing.List[task] = [] # Holds all the tasks
+
+
+def clear_tasks() -> None:
+    tasks.clear()
+
+
+def add_task(task: task):
+    tasks.append(task)
