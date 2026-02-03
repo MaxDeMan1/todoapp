@@ -29,7 +29,7 @@ class Task:
         self.deadline: dt.datetime | None = deadline
         self.description = description
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"task(name = {self.name}, priority = {self.priority}, deadline = {self.deadline})"
 
 
