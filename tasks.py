@@ -33,26 +33,38 @@ class Task:
         return f"task(name = {self.name}, priority = {self.priority}, deadline = {self.deadline})"
 
 
-tasks: typing.List[Task] = [] # Holds all the tasks
+tasks: typing.List[Task] = []  # Holds all the tasks
 
 
 def clear_tasks() -> None:
+    """
+    Removes all tasks.
+    """
     tasks.clear()
 
 
 def add_task(task: Task) -> None:
+    """
+    Adds a task.
+    """
     tasks.append(task)
 
 
 def remove_task(input_task: Task) -> None:
+    """
+    Removes input_task.
+    """
     i = 0
     for task in tasks:
         if task is input_task:
-             tasks.pop(i)   
+            tasks.pop(i)
         i += 1
 
     raise ValueError("input_task argument must contain a task in tasks")
 
 
-def get_tasks_length() -> int:
+def get_tasks_count() -> int:
+    """
+    Returns number of tasks.
+    """
     return len(tasks)
