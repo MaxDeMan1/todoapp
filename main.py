@@ -19,3 +19,4 @@ add_task_button.grid(column=2, row=2, sticky=(W, E))
 ttk.Label(main_frame, text=str(tasks.tasks)).grid(column=3, row=3, sticky=(W, E))
 
 root.mainloop()
+# TEST
