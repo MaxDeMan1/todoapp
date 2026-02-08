@@ -8,7 +8,7 @@ import typing
 _priority = typing.Literal["low", "normal", "high"]
 
 
-class Task:
+class Task(typing.TypedDict):
     """
     Parameters:
         name = str containing the name of the task e.g. "Write chapter 3"
@@ -17,20 +17,10 @@ class Task:
         description = str containing a more detailed explanation of the task
     """
 
-    def __init__(
-        self,
-        name: str,
-        priority: _priority = "normal",
-        deadline: dt.datetime | None = None,
-        description: str | None = None,
-    ):
-        self.name: str = name
-        self.priority: _priority = priority
-        self.deadline: dt.datetime | None = deadline
-        self.description = description
-
-    def __repr__(self) -> str:
-        return f"task(name = {self.name}, priority = {self.priority}, deadline = {self.deadline})"
+    name: str
+    priority: _priority
+    deadline: dt.datetime | None
+    description: str | None
 
 
 tasks: typing.List[Task] = []  # Holds all the tasks
@@ -43,6 +33,17 @@ def clear_tasks() -> None:
     tasks.clear()
 
 
+def create_task(
+    name: str,
+    priority: _priority = "normal",
+    deadline: dt.datetime | None = None,
+    description: str | None = None,
+) -> Task:
+    return Task(
+        name=name, priority=priority, deadline=deadline, description=description
+    )
+
+
 def add_task(task: Task) -> None:
     """
     Adds a task.
@@ -50,14 +51,16 @@ def add_task(task: Task) -> None:
     tasks.append(task)
 
 
-def remove_task(input_task: Task) -> None:
+def remove_task(input_task: Task) -> Task:
     """
     Removes input_task.
+    Returns the removed task.
+    Raises ValueError if input_task not in tasks.
     """
     i = 0
     for task in tasks:
         if task is input_task:
-            tasks.pop(i)
+            return tasks.pop(i)
         i += 1
 
     raise ValueError("input_task argument must contain a task in tasks")
