@@ -10,11 +10,12 @@ _priority = typing.Literal["low", "normal", "high"]
 
 class Task(typing.TypedDict):
     """
-    Parameters:
-        name = str containing the name of the task e.g. "Write chapter 3"
-        priority = str containing one of "low", "normal", "high" defaulting to normal
-        deadline = datetime.datetime, othewise no deadline
-        description = str containing a more detailed explanation of the task
+    A dictionary representing a task.
+    Keys and values in order:
+        name: str, containing the name of the task e.g. "Write chapter 3"
+        priority: str, containing one of "low", "normal", "high" defaulting to normal
+        deadline: datetime.datetime, othewise no deadline
+        description: str, containing a more detailed explanation of the task
     """
 
     name: str
@@ -57,11 +58,9 @@ def remove_task(input_task: Task) -> Task:
     Returns the removed task.
     Raises ValueError if input_task not in tasks.
     """
-    i = 0
-    for task in tasks:
+    for i, task in enumerate(tasks):
         if task is input_task:
             return tasks.pop(i)
-        i += 1
 
     raise ValueError("input_task argument must contain a task in tasks")
 
