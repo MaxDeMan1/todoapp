@@ -65,6 +65,20 @@ def remove_task(input_task: Task) -> Task:
     raise ValueError("input_task argument must contain a task in tasks")
 
 
+def remove_task_name(input_name: str):
+    """
+    Removes input_task based on its name.
+    If multiple tasks have the same name, removes the first.
+    Returns the removed task.
+    Raises ValueError if input_task not in tasks.
+    """
+    for i, task in enumerate(tasks):
+        if task["name"] == input_name:
+            return tasks.pop(i)
+
+    raise ValueError("input_name argument must contain a task in tasks")
+
+
 def get_tasks_count() -> int:
     """
     Returns number of tasks.
