@@ -25,7 +25,12 @@ def main():
                 )
             case "add":
                 name = split_input[1]
-                tasks.add_task(tasks.create_task(name))
+                # If user sets priority, use that else default to normal
+                try:
+                    priority = split_input[2]
+                except IndexError:
+                    priority = "normal"
+                tasks.add_task(tasks.create_task(name, priority))
             case "remove":
                 name = split_input[1]
                 tasks.remove_task_name(name)
