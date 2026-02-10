@@ -1,4 +1,3 @@
-import sys
 import tasks
 import json
 import typing
