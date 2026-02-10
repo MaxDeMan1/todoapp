@@ -37,6 +37,8 @@ def main():
             case "list":
                 for task in tasks.tasks:
                     print(tasks.show_task(task))
+            case _:
+                print("Unknown command")
 
 
 if __name__ == "__main__":
