@@ -23,9 +23,11 @@ def main() -> None:
         tasks.tasks = json.load(file)
 
     while True:
-        # TODO: Wrap grapping input in try/except
         user_input: str = input("Enter command (? for help): ")
-        split_input: typing.List[str] = user_input.split()
+        if len(user_input) > 0:  # Prevents crash on empty command
+            split_input: typing.List[str] = user_input.split()
+        else:
+            continue
         match split_input[0]:
             case "?":
                 print(
