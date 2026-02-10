@@ -1,6 +1,7 @@
-import tasks
 import json
 import typing
+
+import tasks
 
 
 def main() -> None:
