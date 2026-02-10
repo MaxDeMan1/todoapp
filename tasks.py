@@ -65,7 +65,7 @@ def remove_task(input_task: Task) -> Task:
     raise ValueError("input_task argument must contain a task in tasks")
 
 
-def remove_task_name(input_name: str):
+def remove_task_name(input_name: str) -> Task:
     """
     Removes input_task based on its name.
     If multiple tasks have the same name, removes the first.
@@ -86,7 +86,7 @@ def get_tasks_count() -> int:
     return len(tasks)
 
 
-def show_task(input_task: str) -> str:
+def show_task(input_task: Task) -> str:
     """
     Nicely displaces the task info to an end user, not including deadline.
     input_task: Task

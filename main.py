@@ -3,7 +3,7 @@ import json
 import typing
 
 
-def main():
+def main() -> None:
     # Loads the saved tasks
     with open("tasks.json", "r") as file:
         tasks.tasks = json.load(file)
@@ -24,13 +24,15 @@ def main():
                     "\nExit with ctrl+c"
                 )
             case "add":
-                name = split_input[1]
+                name: str = split_input[1]
                 # If user sets priority, use that else default to normal
                 try:
-                    priority = split_input[2]
+                    priority: str = split_input[2]
                 except IndexError:
                     priority = "normal"
-                tasks.add_task(tasks.create_task(name, priority))
+                tasks.add_task(
+                    tasks.create_task(name, typing.cast(tasks._priority, priority))
+                )
             case "remove":
                 name = split_input[1]
                 tasks.remove_task_name(name)
