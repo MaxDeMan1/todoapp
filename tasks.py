@@ -84,3 +84,17 @@ def get_tasks_count() -> int:
     Returns number of tasks.
     """
     return len(tasks)
+
+
+def show_task_name(input_name: str) -> str:
+    """
+    Nicely displaces the task info to an end user, not including deadline.
+    input_name: str takes name of task
+    Returns str with nice formatting of values
+    Raises ValueError if input_task not in tasks.
+    """
+    for i, task in enumerate(tasks):
+        if task["name"] == input_name:
+            return f"Name: {task['name']}, Priority: {task['priority']}"
+
+    raise ValueError("input_name argument must contain a task in tasks")

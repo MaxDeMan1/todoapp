@@ -31,6 +31,8 @@ def main():
                 tasks.remove_task_name(name)
             case "clear":
                 tasks.clear_tasks()
+            case "show":
+                print(tasks.show_task_name(split_input[1]))
 
 
 if __name__ == "__main__":
