@@ -23,8 +23,14 @@ def main():
                     "\nshow <name>\t\tShows info about the task"
                     "\nExit with ctrl+c"
                 )
-            case "add": # TODO
-                pass
+            case "add":
+                name = split_input[1]
+                tasks.add_task(tasks.create_task(name))
+            case "remove":
+                name = split_input[1]
+                tasks.remove_task_name(name)
+            case "clear":
+                tasks.clear_tasks()
 
 
 if __name__ == "__main__":
