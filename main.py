@@ -13,8 +13,7 @@ def main() -> None:
         Prints that input had wrong arg count and returns false if the arg count is
         not equal to the arg_count. Returns True otherwise.
         """
-        arg_count += 1
-        if arg_count != len(str_list):
+        if arg_count != (len(str_list) + 1): # Add 1 to account for command
             print(f"Incorrect argument count (should be {arg_count} arguments)")
             return False
         return True
