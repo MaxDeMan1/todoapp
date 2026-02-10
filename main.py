@@ -21,6 +21,7 @@ def main():
                     "\nremove <name>\t\tRemoves the specified task based on name"
                     "\nclear\t\t\tRemoves all tasks"
                     "\nshow <name>\t\tShows info about the task"
+                    "\nlist\t\t\tShows all tasks"
                     "\nExit with ctrl+c"
                 )
             case "add":
@@ -33,6 +34,9 @@ def main():
                 tasks.clear_tasks()
             case "show":
                 print(tasks.show_task_name(split_input[1]))
+            case "list":
+                for task in tasks.tasks:
+                    print(tasks.show_task(task))
 
 
 if __name__ == "__main__":
